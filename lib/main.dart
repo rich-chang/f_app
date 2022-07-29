@@ -1,3 +1,4 @@
+import 'package:florish_app/screen/login.dart';
 import 'package:florish_app/screen/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const SplashPage(),
+      home: const LoginPage(),
     );
   }
 }
