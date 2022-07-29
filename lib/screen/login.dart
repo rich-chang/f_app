@@ -35,8 +35,9 @@ class _LoginState extends State<LoginPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  color: Colors.amber,
-                  height: 259,
+                  margin: const EdgeInsets.fromLTRB(108, 111, 108, 60),
+                  height: 90,
+                  child: Image.asset('images/florish_login_logo.png'),
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 48),
