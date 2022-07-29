@@ -90,7 +90,37 @@ class _LoginState extends State<LoginPage> {
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 48),
                     child: TextFormField(
+                      obscureText: !_passwordVisible,
+                      //validator: (value) => Validator.validatePassword(value ?? ""),
+                      //controller: passwordController,
+                      keyboardType: TextInputType.visiblePassword,
+                      decoration: InputDecoration(
+                        hintText: "密碼為8-16字",
+                        isDense: true,
+                        suffix: IconButton(
+                          onPressed: (){
+                            setState(() {
+                              _passwordVisible = !_passwordVisible;
+                              debugPrint('_passwordVisible= $_passwordVisible');
+                            });
+                          },
+                          icon:Icon(
+                              _passwordVisible ? Icons.visibility : Icons.visibility_off
+                          ),
+                          color: Colors.amber,
+                        ),
                       ),
+                      onChanged: (val){
+                        setState(() {
+                          password = val.trim();
+                          debugPrint('password= $val');
+                        });
+                      },
+                      style: const TextStyle(
+                          color: Color(0xFFB5BEBE),
+                          fontSize: 20
+                      ),
+                    ),
                   ),
                 ),
                 const SizedBox(
