@@ -107,7 +107,7 @@ class _LoginState extends State<LoginPage> {
                           icon:Icon(
                               _passwordVisible ? Icons.visibility : Icons.visibility_off
                           ),
-                          color: Colors.amber,
+                          color: Color(0xFF667C85)
                         ),
                       ),
                       onChanged: (val){
