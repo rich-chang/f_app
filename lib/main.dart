@@ -1,9 +1,9 @@
-import 'package:florish_app/screen/login.dart';
-import 'package:florish_app/screen/splash.dart';
 import 'package:flutter/material.dart';
+import 'screen/splash.dart';
+import 'screen/onboarding_intro.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Florish',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -26,9 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(),
+      home: OnBoardingPage(),
     );
   }
 }
-
-
