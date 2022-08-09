@@ -27,27 +27,12 @@ class _SignupPageState extends State<SignupPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                margin: const EdgeInsets.fromLTRB(48, 200, 48, 0),
-                child: Text(
-                  "Florish",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 60,
-                  ),
-                ),
+                margin: const EdgeInsets.fromLTRB(92, 198, 92, 242),
+                height: 90,
+                child: Image.asset('images/signup_page_logo.png'),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(48, 25, 48, 0),
-                child: Text(
-                  "幸福心光",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 28,
-                  ),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(48, 245, 48, 20),
+                margin: const EdgeInsets.fromLTRB(48, 0, 48, 20),
                 child: SizedBox(
                   width: 318,
                   height: 56,

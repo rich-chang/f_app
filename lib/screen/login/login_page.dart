@@ -37,7 +37,7 @@ class _LoginState extends State<LoginPage> {
                 Container(
                   margin: const EdgeInsets.fromLTRB(108, 111, 108, 60),
                   height: 90,
-                  child: Image.asset('images/florish_login_logo.png'),
+                  child: Image.asset('images/login_page_logo.png'),
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 48),
