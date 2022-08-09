@@ -130,6 +130,60 @@ class _AgreementPageState extends State<AgreementPage> {
                   ),
                 ),
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Checkbox(
+                      value: agree,
+                      onChanged: (value) {
+                        setState(() {
+                          agree = value ?? false;
+                          debugPrint('agree: $agree');
+                        });
+                      }),
+                  Text(
+                    '我同意 ',
+                    style: TextStyle(
+                      color: agree ? Colors.white : const Color(0xFF559dce),
+                      fontFamily: 'Urbanist',
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  Text(
+                    '會員服務條款',
+                    style: TextStyle(
+                      color: agree ? Colors.white : const Color(0xFF559dce),
+                      fontFamily: 'Urbanist',
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                  Text(
+                    ' 與 ',
+                    style: TextStyle(
+                      color: agree ? Colors.white : const Color(0xFF559dce),
+                      fontFamily: 'Urbanist',
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  Text(
+                    '隱私權保護條款',
+                    style: TextStyle(
+                      color: agree ? Colors.white : const Color(0xFF559dce),
+                      fontFamily: 'Urbanist',
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 47,
+              ),
               
             ],
           ),
