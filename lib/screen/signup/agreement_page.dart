@@ -16,6 +16,8 @@ class AgreementPage extends StatefulWidget {
 }
 
 class _AgreementPageState extends State<AgreementPage> {
+  int current_page = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -68,6 +70,37 @@ class _AgreementPageState extends State<AgreementPage> {
                   fontSize: 24,
                   fontWeight: FontWeight.w700,
                 ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 12, bottom: 25),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text(
+                    '1',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Roboto',
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 12,
+                  ),
+                  Text(
+                    '2',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Roboto',
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      //decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
