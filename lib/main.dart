@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:florish_app/screen/login.dart';
-import 'package:florish_app/screen/onboarding_intro.dart';
-import 'package:florish_app/screen/signup_main.dart';
-import 'package:florish_app/screen/splash.dart';
+import 'screen/splash.dart';
+import 'screen/onboarding/onboarding_page.dart';
+import 'screen/signup/signup_page.dart';
+import 'screen/login/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const SignupScreen(),
+      home: const SignupPage(),
     );
   }
 }
