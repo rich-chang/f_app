@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:florish_app/screen/signup/agreement_content.dart';
 
 class AgreementPage extends StatefulWidget {
   const AgreementPage({Key? key}) : super(key: key);
@@ -61,9 +62,9 @@ class _AgreementPageState extends State<AgreementPage> {
         ),
         body: Column(
           children: [
-            const Center(
+            Center(
               child: Text(
-                '會員服務 & 隱私權保護條款',
+                agreementContents[0].title,
                 style: TextStyle(
                   color: Colors.white,
                   fontFamily: 'Noto Sans TC',
@@ -101,6 +102,29 @@ class _AgreementPageState extends State<AgreementPage> {
                     ),
                   ),
                 ],
+              ),
+            ),
+            Card(
+              elevation: 0,
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              margin: const EdgeInsets.symmetric(horizontal: 32.0),
+              child: SizedBox(
+                width: 350,
+                height: 479,
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.all(24),
+                  child: Text(
+                    agreementContents[0].content,
+                    style: TextStyle(
+                      fontFamily: 'PingFang TC',
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
