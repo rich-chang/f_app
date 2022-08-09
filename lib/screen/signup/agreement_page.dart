@@ -18,6 +18,7 @@ class AgreementPage extends StatefulWidget {
 
 class _AgreementPageState extends State<AgreementPage> {
   int current_page = 0;
+  bool agree = false;
 
   @override
   Widget build(BuildContext context) {
@@ -60,74 +61,78 @@ class _AgreementPageState extends State<AgreementPage> {
           ),
           centerTitle: true,
         ),
-        body: Column(
-          children: [
-            Center(
-              child: Text(
-                agreementContents[0].title,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Noto Sans TC',
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 12, bottom: 25),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text(
-                    '1',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Roboto',
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 12,
-                  ),
-                  Text(
-                    '2',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Roboto',
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                      //decoration: TextDecoration.underline,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Card(
-              elevation: 0,
-              color: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              margin: const EdgeInsets.symmetric(horizontal: 32.0),
-              child: SizedBox(
-                width: 350,
-                height: 479,
-                child: SingleChildScrollView(
-                  padding: EdgeInsets.all(24),
-                  child: Text(
-                    agreementContents[0].content,
-                    style: TextStyle(
-                      fontFamily: 'PingFang TC',
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Center(
+                child: Text(
+                  agreementContents[0].title,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Noto Sans TC',
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
-            ),
-          ],
+              Container(
+                margin: EdgeInsets.only(top: 12, bottom: 25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      '1',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Roboto',
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 12,
+                    ),
+                    Text(
+                      '2',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Roboto',
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                        //decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Card(
+                elevation: 0,
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                margin: const EdgeInsets.fromLTRB(32, 0, 32, 34),
+                child: SizedBox(
+                  width: 350,
+                  height: 479,
+                  child: SingleChildScrollView(
+                    padding: EdgeInsets.all(24),
+                    child: Text(
+                      agreementContents[0].content,
+                      style: const TextStyle(
+                        color: Color(0xFF36444D),
+                        fontFamily: 'PingFang TC',
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              
+            ],
+          ),
         ),
       ),
     );
