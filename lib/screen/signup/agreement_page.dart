@@ -184,7 +184,66 @@ class _AgreementPageState extends State<AgreementPage> {
               SizedBox(
                 height: 47,
               ),
-              
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 150,
+                    height: 56,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          elevation: 0.0,
+                          primary:
+                              Colors.black.withOpacity(0), // background color
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(68.0),
+                          ),
+                          side: BorderSide(
+                            width: 1,
+                            color: Colors.white,
+                          )),
+                      child: const Text(
+                        '取消',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Noto Sans TC',
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 24,
+                  ),
+                  SizedBox(
+                    width: 150,
+                    height: 56,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0.0,
+                        primary: agree
+                            ? Color(0xFF33C2CF)
+                            : Color(0xFFE4E7EC), // background color
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(68.0),
+                        ),
+                      ),
+                      child: Text(
+                        '下一步',
+                        style: TextStyle(
+                          color: agree ? Colors.white : Color(0xFFB5BEBE),
+                          fontFamily: 'Noto Sans TC',
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
