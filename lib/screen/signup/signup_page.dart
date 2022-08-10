@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:florish_app/screen/signup/agreement_page.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class _SignupPageState extends State<SignupPage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -40,6 +41,10 @@ class _SignupPageState extends State<SignupPage> {
                     //If onPressed and onLongPress callbacks are null, then the button will be disabled.
                     onPressed: () {
                       debugPrint('以 E-mail 註冊');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AgreementPage()));
                     },
                     style: ElevatedButton.styleFrom(
                       elevation: 0.0,
@@ -70,14 +75,19 @@ class _SignupPageState extends State<SignupPage> {
                     //If onPressed and onLongPress callbacks are null, then the button will be disabled.
                     onPressed: () {
                       debugPrint('使用 Google 註冊');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AgreementPage()));
                     },
                     style: ElevatedButton.styleFrom(
                         elevation: 0.0,
-                        primary: Colors.black.withOpacity(0), // background color
+                        primary:
+                            Colors.black.withOpacity(0), // background color
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(68.0),
                         ),
-                        side: BorderSide(
+                        side: const BorderSide(
                           width: 1,
                           color: Colors.white,
                         )),
@@ -102,14 +112,19 @@ class _SignupPageState extends State<SignupPage> {
                     //If onPressed and onLongPress callbacks are null, then the button will be disabled.
                     onPressed: () {
                       debugPrint('使用 Apple ID 註冊');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AgreementPage()));
                     },
                     style: ElevatedButton.styleFrom(
                         elevation: 0.0,
-                        primary: Colors.black.withOpacity(0), // background color
+                        primary:
+                            Colors.black.withOpacity(0), // background color
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(68.0),
                         ),
-                        side: BorderSide(
+                        side: const BorderSide(
                           width: 1,
                           color: Colors.white,
                         )),
@@ -127,26 +142,28 @@ class _SignupPageState extends State<SignupPage> {
               ),
               Container(
                 margin: const EdgeInsets.only(top: 53, bottom: 79),
-                child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Text(
-                    '已經有 Florish 帳號?  ',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Noto Sans TC',
-                      fontWeight: FontWeight.w700,
-                      fontSize: 14,
-                    ),
-                  ),
-                  Text(
-                    '立即登入',
-                    style: TextStyle(
-                      color: Color(0xFF33C2CF),
-                      fontFamily: 'Noto Sans TC',
-                      fontWeight: FontWeight.w400,
-                      fontSize: 14,
-                    ),
-                  ),
-                ]),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text(
+                        '已經有 Florish 帳號?  ',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Noto Sans TC',
+                          fontWeight: FontWeight.w700,
+                          fontSize: 14,
+                        ),
+                      ),
+                      Text(
+                        '立即登入',
+                        style: TextStyle(
+                          color: Color(0xFF33C2CF),
+                          fontFamily: 'Noto Sans TC',
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ]),
               ),
             ],
           ),
