@@ -194,11 +194,11 @@ class _TempHomeState extends State<TempHome> {
                 child: ElevatedButton(
                   //If onPressed and onLongPress callbacks are null, then the button will be disabled.
                   onPressed: () {
-                    debugPrint('Signup flow page');
+                    debugPrint('Signup flow - name');
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const SignupFlow()));
+                            builder: (context) => const SignupFlowName()));
                   },
                   style: ElevatedButton.styleFrom(
                     elevation: 0.0,
@@ -208,7 +208,7 @@ class _TempHomeState extends State<TempHome> {
                     ),
                   ),
                   child: Text(
-                    'Signup flow page',
+                    'Signup flow - name',
                     style: TextStyle(
                       color: Colors.white,
                       fontFamily: 'Noto Sans TC',

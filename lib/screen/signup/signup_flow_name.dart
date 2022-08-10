@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:florish_app/components/signup_flow_name.dart';
 
-class SignupFlow extends StatefulWidget {
-  const SignupFlow({Key? key}) : super(key: key);
+class SignupFlowName extends StatefulWidget {
+  const SignupFlowName({Key? key}) : super(key: key);
 
   @override
-  State<SignupFlow> createState() => _SignupFlowState();
+  State<SignupFlowName> createState() => _SignupFlowNameState();
 }
 
-class _SignupFlowState extends State<SignupFlow> {
+class _SignupFlowNameState extends State<SignupFlowName> {
   late String name;
 
   @override
