@@ -90,7 +90,7 @@ class _SignupFlowNameContainerState extends State<SignupFlowNameContainer> {
             height: 183,
           ),
           SizedBox(
-            width: 350,
+            width: MediaQuery.of(context).size.width > 400 ? 350 : 300,
             height: 56,
             child: ElevatedButton(
               //If onPressed and onLongPress callbacks are null, then the button will be disabled.
