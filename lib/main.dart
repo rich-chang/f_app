@@ -4,7 +4,7 @@ import 'screen/splash.dart';
 import 'screen/onboarding/onboarding_page.dart';
 import 'screen/signup/signup_page.dart';
 import 'screen/signup/agreement_page.dart';
-import 'screen/signup/signup_flow.dart';
+import 'screen/signup/signup_flow_name.dart';
 import 'screen/login/login_page.dart';
 
 void main() {
