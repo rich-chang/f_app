@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:florish_app/components/signup_flow_name.dart';
 
-class SignupFlowName extends StatefulWidget {
-  const SignupFlowName({Key? key}) : super(key: key);
+class SignupFlow extends StatefulWidget {
+  const SignupFlow({Key? key}) : super(key: key);
 
   @override
-  State<SignupFlowName> createState() => _SignupFlowNameState();
+  State<SignupFlow> createState() => _SignupFlowState();
 }
 
-class _SignupFlowNameState extends State<SignupFlowName> {
+class _SignupFlowState extends State<SignupFlow> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -125,6 +126,10 @@ class _SignupFlowNameState extends State<SignupFlowName> {
                   ],
                 ),
               ),
+              const SizedBox(
+                height: 44,
+              ),
+              SignupFlowNameContainer(),
             ],
           ),
         ),
