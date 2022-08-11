@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:florish_app/components/signup_flow_name.dart';
 
 class SignupFlowName extends StatefulWidget {
   const SignupFlowName({Key? key}) : super(key: key);
@@ -137,6 +136,7 @@ class _SignupFlowNameState extends State<SignupFlowName> {
               const SizedBox(
                 height: 44,
               ),
+              // Each step container
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
@@ -224,8 +224,9 @@ class _SignupFlowNameState extends State<SignupFlowName> {
                   child: Text(
                     '下一步',
                     style: TextStyle(
-                      color:
-                      name.isNotEmpty ? Colors.white : const Color(0xFFB5BEBE),
+                      color: name.isNotEmpty
+                          ? Colors.white
+                          : const Color(0xFFB5BEBE),
                       fontFamily: 'Noto Sans TC',
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
