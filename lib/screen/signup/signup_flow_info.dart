@@ -158,6 +158,32 @@ class _SignupFlowInfoState extends State<SignupFlowInfo> {
                           fontWeight: FontWeight.w700,
                         ),
                       ),
+                      Container(
+                        margin: const EdgeInsets.only(top: 16, bottom: 28),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SvgPicture.asset(
+                              'images/gender_male_default.svg',
+                              width: MediaQuery.of(context).size.width > 400
+                                  ? 106
+                                  : 96,
+                            ),
+                            SvgPicture.asset(
+                              'images/gender_female_default.svg',
+                              width: MediaQuery.of(context).size.width > 400
+                                  ? 106
+                                  : 96,
+                            ),
+                            SvgPicture.asset(
+                              'images/gender_other_default.svg',
+                              width: MediaQuery.of(context).size.width > 400
+                                  ? 106
+                                  : 96,
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
