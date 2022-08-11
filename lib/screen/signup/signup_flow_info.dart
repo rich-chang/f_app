@@ -158,6 +158,80 @@ class _SignupFlowInfoState extends State<SignupFlowInfo> {
                           fontWeight: FontWeight.w700,
                         ),
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  selectedGender = Gender.male;
+                                  debugPrint('selectedGender: $selectedGender');
+                                });
+                              },
+                              child: selectedGender == Gender.male
+                                  ? SvgPicture.asset(
+                                      'images/gender_male_selected.svg',
+                                      width: MediaQuery.of(context).size.width >
+                                              400
+                                          ? 106
+                                          : 96,
+                                    )
+                                  : SvgPicture.asset(
+                                      'images/gender_male_default.svg',
+                                      width: MediaQuery.of(context).size.width >
+                                              400
+                                          ? 106
+                                          : 96,
+                                    )),
+                          GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  selectedGender = Gender.female;
+                                  debugPrint('selectedGender: $selectedGender');
+                                });
+                              },
+                              child: selectedGender == Gender.female
+                                  ? SvgPicture.asset(
+                                      'images/gender_female_selected.svg',
+                                      width: MediaQuery.of(context).size.width >
+                                              400
+                                          ? 106
+                                          : 96,
+                                    )
+                                  : SvgPicture.asset(
+                                      'images/gender_female_default.svg',
+                                      width: MediaQuery.of(context).size.width >
+                                              400
+                                          ? 106
+                                          : 96,
+                                    )),
+                          GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  selectedGender = Gender.other;
+                                  debugPrint('selectedGender: $selectedGender');
+                                });
+                              },
+                              child: selectedGender == Gender.other
+                                  ? SvgPicture.asset(
+                                      'images/gender_other_selected.svg',
+                                      width: MediaQuery.of(context).size.width >
+                                              400
+                                          ? 106
+                                          : 96,
+                                    )
+                                  : SvgPicture.asset(
+                                      'images/gender_other_default.svg',
+                                      width: MediaQuery.of(context).size.width >
+                                              400
+                                          ? 106
+                                          : 96,
+                                    )),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 28,
+                      ),
                     ],
                   ),
                 ),
