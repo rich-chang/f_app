@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:florish_app/screen/signup/signup_flow_info.dart';
 
 class SignupFlowName extends StatefulWidget {
   const SignupFlowName({Key? key}) : super(key: key);
@@ -211,6 +212,12 @@ class _SignupFlowNameState extends State<SignupFlowName> {
                   //If onPressed and onLongPress callbacks are null, then the button will be disabled.
                   onPressed: () {
                     debugPrint('下一步: $name');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SignupFlowInfo(
+                                  userName: name,
+                                )));
                   },
                   style: ElevatedButton.styleFrom(
                     elevation: 0.0,

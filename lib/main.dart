@@ -245,7 +245,9 @@ class _TempHomeState extends State<TempHome> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const SignupFlowInfo()));
+                              builder: (context) => const SignupFlowInfo(
+                                    userName: 'Rich chang',
+                                  )));
                     },
                     style: ElevatedButton.styleFrom(
                       elevation: 0.0,

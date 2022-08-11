@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SignupFlowInfo extends StatefulWidget {
-  const SignupFlowInfo({Key? key}) : super(key: key);
+  const SignupFlowInfo({Key? key, required this.userName}) : super(key: key);
+
+  final String userName;
 
   @override
   State<SignupFlowInfo> createState() => _SignupFlowInfoState();
@@ -127,6 +129,38 @@ class _SignupFlowInfoState extends State<SignupFlowInfo> {
               ),
               const SizedBox(
                 height: 44,
+              ),
+              // Each step container
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 32),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Hi, ${widget.userName}',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Noto Sans TC',
+                          fontSize: 32,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 24,
+                      ),
+                      const Text(
+                        '你的性別是',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Noto Sans TC',
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
