@@ -9,7 +9,18 @@ class SignupFlowInfo extends StatefulWidget {
   State<SignupFlowInfo> createState() => _SignupFlowInfoState();
 }
 
+enum Gender {
+  none,
+  male,
+  female,
+  other,
+}
+
 class _SignupFlowInfoState extends State<SignupFlowInfo> {
+  TextEditingController dateCtl = TextEditingController();
+  Gender selectedGender = Gender.none;
+  late DateTime dateOfBirth;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -229,8 +240,72 @@ class _SignupFlowInfoState extends State<SignupFlowInfo> {
                                     )),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 28,
+                      ),
+                      const Text(
+                        '請設定你的生日',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Noto Sans TC',
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      TextFormField(
+                        controller: dateCtl,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Noto Sans TC',
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        onTap: () async {
+                          DateTime date = DateTime(1900);
+                          FocusScope.of(context).requestFocus(FocusNode());
+
+                          date = (await showDatePicker(
+                              context: context,
+                              initialDate: DateTime.now(),
+                              firstDate: DateTime(1900),
+                              lastDate: DateTime(2100)))!;
+
+                          dateOfBirth = date;
+                          dateCtl.text =
+                              "${date.year.toString()} / ${date.month.toString().padLeft(2, '0')} / ${date.day.toString().padLeft(2, '0')}";
+                          //dateCtl.text = date.toIso8601String();
+                        },
+                        onChanged: (val) {
+                          setState(() {
+                            debugPrint('DOB= $val');
+                          });
+                        },
+                        decoration: const InputDecoration(
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Color(0xFFAAE6EE)),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Color(0xFFD0D5DD)),
+                          ),
+                          hintStyle: TextStyle(
+                            color: Color.fromRGBO(255, 255, 255, 0.2),
+                            fontFamily: 'Noto Sans TC',
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 28,
+                      ),
+                      const Text(
+                        '請選擇你的職業',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Noto Sans TC',
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ],
                   ),
