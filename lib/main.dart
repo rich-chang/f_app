@@ -79,7 +79,7 @@ class _TempHomeState extends State<TempHome> {
                         borderRadius: BorderRadius.circular(68.0),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Splash page',
                       style: TextStyle(
                         color: Colors.white,
@@ -114,7 +114,7 @@ class _TempHomeState extends State<TempHome> {
                         borderRadius: BorderRadius.circular(68.0),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Onboarding page',
                       style: TextStyle(
                         color: Colors.white,
@@ -149,7 +149,7 @@ class _TempHomeState extends State<TempHome> {
                         borderRadius: BorderRadius.circular(68.0),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Login page',
                       style: TextStyle(
                         color: Colors.white,
@@ -184,7 +184,7 @@ class _TempHomeState extends State<TempHome> {
                         borderRadius: BorderRadius.circular(68.0),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Signup page',
                       style: TextStyle(
                         color: Colors.white,
@@ -219,7 +219,7 @@ class _TempHomeState extends State<TempHome> {
                         borderRadius: BorderRadius.circular(68.0),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Signup flow - name',
                       style: TextStyle(
                         color: Colors.white,
@@ -256,7 +256,7 @@ class _TempHomeState extends State<TempHome> {
                         borderRadius: BorderRadius.circular(68.0),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Signup flow - info',
                       style: TextStyle(
                         color: Colors.white,
