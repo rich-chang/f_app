@@ -58,8 +58,6 @@ class _TempHomeState extends State<TempHome> {
         margin: const EdgeInsets.symmetric(vertical: 36),
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Center(
                 child: SizedBox(
@@ -93,6 +91,9 @@ class _TempHomeState extends State<TempHome> {
                   ),
                 ),
               ),
+              const SizedBox(
+                height: 32,
+              ),
               Center(
                 child: SizedBox(
                   width: 300,
@@ -124,6 +125,9 @@ class _TempHomeState extends State<TempHome> {
                     ),
                   ),
                 ),
+              ),
+              const SizedBox(
+                height: 32,
               ),
               Center(
                 child: SizedBox(
@@ -157,6 +161,9 @@ class _TempHomeState extends State<TempHome> {
                   ),
                 ),
               ),
+              const SizedBox(
+                height: 32,
+              ),
               Center(
                 child: SizedBox(
                   width: 300,
@@ -188,6 +195,9 @@ class _TempHomeState extends State<TempHome> {
                     ),
                   ),
                 ),
+              ),
+              const SizedBox(
+                height: 32,
               ),
               Center(
                 child: SizedBox(
@@ -221,6 +231,9 @@ class _TempHomeState extends State<TempHome> {
                   ),
                 ),
               ),
+              const SizedBox(
+                height: 32,
+              ),
               Center(
                 child: SizedBox(
                   width: 300,
@@ -252,6 +265,9 @@ class _TempHomeState extends State<TempHome> {
                     ),
                   ),
                 ),
+              ),
+              const SizedBox(
+                height: 32,
               ),
             ],
           ),
