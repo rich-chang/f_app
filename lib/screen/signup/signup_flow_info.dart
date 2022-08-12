@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:florish_app/components/job_selection_dialog.dart';
 
 class SignupFlowInfo extends StatefulWidget {
   const SignupFlowInfo({Key? key, required this.userName}) : super(key: key);
@@ -19,6 +20,7 @@ enum Gender {
 
 class _SignupFlowInfoState extends State<SignupFlowInfo> {
   TextEditingController dateCtl = TextEditingController();
+  TextEditingController jobCtl = TextEditingController();
   Gender selectedGender = Gender.none;
   late DateTime dateOfBirth;
 
@@ -309,6 +311,38 @@ class _SignupFlowInfoState extends State<SignupFlowInfo> {
                         fontFamily: 'Noto Sans TC',
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    TextFormField(
+                      controller: jobCtl,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Noto Sans TC',
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      onTap: () async {
+                        showJobSelectionDialog(context);
+                      },
+                      onChanged: (val) {
+                        setState(() {
+                          debugPrint('job= $val');
+                        });
+                      },
+                      decoration: const InputDecoration(
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFFAAE6EE)),
+                        ),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFFD0D5DD)),
+                        ),
+                        hintStyle: TextStyle(
+                          color: Color.fromRGBO(255, 255, 255, 0.2),
+                          fontFamily: 'Noto Sans TC',
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        //isDense: true,
                       ),
                     ),
                   ],
