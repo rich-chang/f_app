@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:florish_app/components/job_list_content.dart';
 
 showJobSelectionDialog(BuildContext context) {
-  int job = 0;
+  int _selectedJob = 0;
 
   // Init
   AlertDialog dialog = AlertDialog(
@@ -21,61 +21,72 @@ showJobSelectionDialog(BuildContext context) {
         Image.asset('images/job_selection_close.png'),
       ],
     ),
-    actions: [
-      Container(
-        margin: const EdgeInsets.symmetric(horizontal: 24),
+    content:SingleChildScrollView(
+      child: Container(
+        width: double.maxFinite,
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [
-            Flexible(
-              fit: FlexFit.loose,
+          children: <Widget>[
+            Divider(),
+            ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: MediaQuery.of(context).size.height * 0.4,
+              ),
               child: ListView.builder(
                   shrinkWrap: true,
-                  //physics: const NeverScrollableScrollPhysics(),
-                  scrollDirection: Axis.vertical,
-                  itemCount: jobList.length,
+                  itemCount: jobListWidget.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      title: Text(
-                        jobList[index].title,
-                        style: const TextStyle(
-                          color: Color(0xFF667C85),
-                          fontFamily: 'Noto Sans TC',
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    );
+                    return RadioListTile(
+                        title: Text(jobList[index].title),
+                        value: index,
+                        groupValue: _selectedJob,
+                        onChanged: (value) {
+                        });
                   }),
             ),
-            SizedBox(
-              width: 330,
-              height: 56,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                style: ElevatedButton.styleFrom(
-                  elevation: 0.0,
-                  primary: job > 0
-                      ? const Color(0xFF33C2CF)
-                      : const Color(0xFFE4E7EC),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(68.0),
-                  ),
-                ),
-                child: Text(
-                  "確認",
-                  style: TextStyle(
-                    color: job > 0 ? Colors.white : const Color(0xFFB5BEBE),
-                    fontFamily: 'Noto Sans TC',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
+            Divider(),
+            TextField(
+              autofocus: false,
+              maxLines: 1,
+              style: TextStyle(fontSize: 18),
+              decoration: new InputDecoration(
+                border: InputBorder.none,
+                hintText: "hint",
               ),
             ),
           ],
+        ),
+      ),
+    ),
+    actions: [
+      Container(
+        margin: const EdgeInsets.symmetric(horizontal: 24),
+        child: SizedBox(
+          width: 330,
+          height: 56,
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            style: ElevatedButton.styleFrom(
+              elevation: 0.0,
+              primary: _selectedJob > 0
+                  ? const Color(0xFF33C2CF)
+                  : const Color(0xFFE4E7EC),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(68.0),
+              ),
+            ),
+            child: Text(
+              "確認",
+              style: TextStyle(
+                color: _selectedJob > 0 ? Colors.white : const Color(0xFFB5BEBE),
+                fontFamily: 'Noto Sans TC',
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
         ),
       ),
     ],
