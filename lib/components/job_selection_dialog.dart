@@ -21,75 +21,68 @@ showJobSelectionDialog(BuildContext context) {
         Image.asset('images/job_selection_close.png'),
       ],
     ),
-    content:SingleChildScrollView(
+    actions: <Widget>[
+      SizedBox(
+        width: 330,
+        height: 56,
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          style: ElevatedButton.styleFrom(
+            elevation: 0.0,
+            primary: _selectedJob > 0
+                ? const Color(0xFF33C2CF)
+                : const Color(0xFFE4E7EC),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(68.0),
+            ),
+          ),
+          child: Text(
+            "確認",
+            style: TextStyle(
+              color: _selectedJob > 0 ? Colors.white : const Color(0xFFB5BEBE),
+              fontFamily: 'Noto Sans TC',
+              fontSize: 16,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ),
+      ),
+    ],
+    content: SingleChildScrollView(
       child: Container(
-        width: double.maxFinite,
+        margin: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Divider(),
             ConstrainedBox(
               constraints: BoxConstraints(
                 maxHeight: MediaQuery.of(context).size.height * 0.4,
               ),
               child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: jobListWidget.length,
+                  //physics: const NeverScrollableScrollPhysics(),
+                  scrollDirection: Axis.vertical,
+                  itemCount: jobList.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return RadioListTile(
-                        title: Text(jobList[index].title),
-                        value: index,
-                        groupValue: _selectedJob,
-                        onChanged: (value) {
-                        });
+                    return ListTile(
+                      title: Text(
+                        jobList[index].title,
+                        style: const TextStyle(
+                          color: Color(0xFF667C85),
+                          fontFamily: 'Noto Sans TC',
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    );
                   }),
-            ),
-            Divider(),
-            TextField(
-              autofocus: false,
-              maxLines: 1,
-              style: TextStyle(fontSize: 18),
-              decoration: new InputDecoration(
-                border: InputBorder.none,
-                hintText: "hint",
-              ),
             ),
           ],
         ),
       ),
     ),
-    actions: [
-      Container(
-        margin: const EdgeInsets.symmetric(horizontal: 24),
-        child: SizedBox(
-          width: 330,
-          height: 56,
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            style: ElevatedButton.styleFrom(
-              elevation: 0.0,
-              primary: _selectedJob > 0
-                  ? const Color(0xFF33C2CF)
-                  : const Color(0xFFE4E7EC),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(68.0),
-              ),
-            ),
-            child: Text(
-              "確認",
-              style: TextStyle(
-                color: _selectedJob > 0 ? Colors.white : const Color(0xFFB5BEBE),
-                fontFamily: 'Noto Sans TC',
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ),
-        ),
-      ),
-    ],
   );
 
   // Show the dialog (showDialog() => showGeneralDialog())
