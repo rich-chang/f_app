@@ -71,7 +71,8 @@ showJobSelectionDialog(BuildContext context) {
                       return Column(
                         children: [
                           RadioListTile(
-                              controlAffinity: ListTileControlAffinity.trailing,
+                              controlAffinity: ListTileControlAffinity
+                                  .trailing, // Make radio button at the right
                               title: Text(
                                 jobList[index].title,
                                 style: const TextStyle(
