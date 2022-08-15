@@ -60,7 +60,7 @@ showJobSelectionDialog(BuildContext context) {
             children: <Widget>[
               ConstrainedBox(
                 constraints: BoxConstraints(
-                  maxHeight: MediaQuery.of(context).size.height * 0.4,
+                  maxHeight: MediaQuery.of(context).size.height * 0.8,
                 ),
                 child: ListView.builder(
                     shrinkWrap: true,
