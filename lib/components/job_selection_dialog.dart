@@ -50,39 +50,61 @@ showJobSelectionDialog(BuildContext context) {
         ),
       ),
     ],
-    content: SingleChildScrollView(
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            ConstrainedBox(
-              constraints: BoxConstraints(
-                maxHeight: MediaQuery.of(context).size.height * 0.4,
+    content:
+        StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
+      return SingleChildScrollView(
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 2),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: MediaQuery.of(context).size.height * 0.4,
+                ),
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    //physics: const NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.vertical,
+                    itemCount: jobList.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                        children: [
+                          RadioListTile(
+                              controlAffinity: ListTileControlAffinity.trailing,
+                              title: Text(
+                                jobList[index].title,
+                                style: const TextStyle(
+                                  color: Color(0xFF667C85),
+                                  fontFamily: 'Noto Sans TC',
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              value: index,
+                              groupValue: _selectedJob,
+                              onChanged: (value) {
+                                setState(() => _selectedJob = index);
+                                debugPrint('_selectedJob: $_selectedJob');
+                              }),
+                          SizedBox(
+                            height: 16,
+                            child: Center(
+                              child: Container(
+                                color: Color(0xFFD9D9D9),
+                                height: 1,
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    }),
               ),
-              child: ListView.builder(
-                  shrinkWrap: true,
-                  //physics: const NeverScrollableScrollPhysics(),
-                  scrollDirection: Axis.vertical,
-                  itemCount: jobList.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      title: Text(
-                        jobList[index].title,
-                        style: const TextStyle(
-                          color: Color(0xFF667C85),
-                          fontFamily: 'Noto Sans TC',
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    );
-                  }),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    ),
+      );
+    }),
   );
 
   // Show the dialog (showDialog() => showGeneralDialog())
@@ -101,7 +123,7 @@ showJobSelectionDialog(BuildContext context) {
         child: dialog,
       );
     },
-    transitionDuration: Duration(milliseconds: 400),
+    transitionDuration: const Duration(milliseconds: 400),
   );
 
   // Generate some dummy data
