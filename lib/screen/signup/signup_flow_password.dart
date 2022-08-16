@@ -201,17 +201,10 @@ class _SignupFlowPasswordState extends State<SignupFlowPassword> {
                                     '_passwordVisible= $_passwordVisible');
                               });
                             },
-                            icon: _passwordVisible
-                                ? SvgPicture.asset(
-                                    'images/password_visible_tint.svg',
-                                    width: 20,
-                                    color: const Color(0xFFAAE6EE),
-                                  )
-                                : SvgPicture.asset(
-                                    'images/password_invisible_tint.svg',
-                                    width: 20,
-                                    color: const Color(0xFFAAE6EE),
-                                  ),
+                            icon: Icon(_passwordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off),
+                            color: const Color(0xFFAAE6EE),
                           ),
                         ),
                       ),
@@ -269,17 +262,10 @@ class _SignupFlowPasswordState extends State<SignupFlowPassword> {
                                     '_passwordVisible= $_passwordVisible');
                               });
                             },
-                            icon: _passwordVisible
-                                ? SvgPicture.asset(
-                                    'images/password_visible_tint.svg',
-                                    width: 20,
-                                    color: const Color(0xFFAAE6EE),
-                                  )
-                                : SvgPicture.asset(
-                                    'images/password_invisible_tint.svg',
-                                    width: 20,
-                                    color: const Color(0xFFAAE6EE),
-                                  ),
+                            icon: Icon(_passwordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off),
+                            color: const Color(0xFFAAE6EE),
                           ),
                         ),
                       ),
