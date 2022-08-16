@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:florish_app/screen/splash.dart';
 import 'package:florish_app/screen/onboarding/onboarding_page.dart';
 import 'package:florish_app/screen/login/login_page.dart';
-import 'package:florish_app/screen/signup/signup_page.dart';
 import 'package:florish_app/screen/signup/agreement_page.dart';
+import 'package:florish_app/screen/signup/signup_page.dart';
 import 'package:florish_app/screen/signup/signup_flow_name.dart';
 import 'package:florish_app/screen/signup/signup_flow_info.dart';
 import 'package:florish_app/screen/signup/signup_flow_email.dart';
@@ -152,6 +152,41 @@ class _TempHomeState extends State<TempHome> {
                     ),
                     child: const Text(
                       'Login page',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Noto Sans TC',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 32,
+              ),
+              Center(
+                child: SizedBox(
+                  width: 300,
+                  height: 56,
+                  child: ElevatedButton(
+                    //If onPressed and onLongPress callbacks are null, then the button will be disabled.
+                    onPressed: () {
+                      debugPrint('Register Agreement');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AgreementPage()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0.0,
+                      primary: const Color(0xFF33C2CF),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(68.0),
+                      ),
+                    ),
+                    child: const Text(
+                      'Register Agreement',
                       style: TextStyle(
                         color: Colors.white,
                         fontFamily: 'Noto Sans TC',
