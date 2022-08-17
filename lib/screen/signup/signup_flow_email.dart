@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:florish_app/screen/signup/signup_flow_info.dart';
+import 'package:florish_app/screen/signup/signup_flow_password.dart';
 
-class SignupFlowName extends StatefulWidget {
-  const SignupFlowName({Key? key}) : super(key: key);
+class SignupFlowEmail extends StatefulWidget {
+  const SignupFlowEmail({Key? key, required this.userName}) : super(key: key);
+
+  final String userName;
 
   @override
-  State<SignupFlowName> createState() => _SignupFlowNameState();
+  State<SignupFlowEmail> createState() => _SignupFlowEmailState();
 }
 
-class _SignupFlowNameState extends State<SignupFlowName> {
-  late String name;
+class _SignupFlowEmailState extends State<SignupFlowEmail> {
+  late String userName;
+  late String userEmail;
 
   @override
   void initState() {
-    name = '';
+    userName = widget.userName;
+    userEmail = '';
     super.initState();
   }
 
@@ -72,10 +76,10 @@ class _SignupFlowNameState extends State<SignupFlowName> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset('images/signup_flow_dot_on.png'),
-                  Image.asset('images/signup_flow_line_off.png'),
-                  Image.asset('images/signup_flow_dot_off.png'),
-                  Image.asset('images/signup_flow_line_off.png'),
-                  Image.asset('images/signup_flow_dot_off.png'),
+                  Image.asset('images/signup_flow_line_on.png'),
+                  Image.asset('images/signup_flow_dot_on.png'),
+                  Image.asset('images/signup_flow_line_on.png'),
+                  Image.asset('images/signup_flow_dot_on.png'),
                   Image.asset('images/signup_flow_line_off.png'),
                   Image.asset('images/signup_flow_dot_off.png'),
                   Image.asset('images/signup_flow_line_off.png'),
@@ -104,7 +108,7 @@ class _SignupFlowNameState extends State<SignupFlowName> {
                     Text(
                       '基本資料',
                       style: TextStyle(
-                        color: Color(0xFFAAE6EE),
+                        color: Colors.white,
                         fontFamily: 'Noto Sans TC',
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
@@ -113,7 +117,7 @@ class _SignupFlowNameState extends State<SignupFlowName> {
                     Text(
                       '電子信箱',
                       style: TextStyle(
-                        color: Color(0xFFAAE6EE),
+                        color: Colors.white,
                         fontFamily: 'Noto Sans TC',
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
@@ -149,12 +153,11 @@ class _SignupFlowNameState extends State<SignupFlowName> {
                 child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 32),
                   child: Column(
-                    //mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        '歡迎來到 Florish !',
-                        style: TextStyle(
+                      Text(
+                        'Hi, ${widget.userName}',
+                        style: const TextStyle(
                           color: Colors.white,
                           fontFamily: 'Noto Sans TC',
                           fontSize: 32,
@@ -165,7 +168,7 @@ class _SignupFlowNameState extends State<SignupFlowName> {
                         height: 24,
                       ),
                       const Text(
-                        '要怎麼稱呼你呢？',
+                        '請輸入 E-mail 作為帳號使用',
                         style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'Noto Sans TC',
@@ -174,7 +177,7 @@ class _SignupFlowNameState extends State<SignupFlowName> {
                         ),
                       ),
                       TextFormField(
-                        keyboardType: TextInputType.name,
+                        keyboardType: TextInputType.emailAddress,
                         style: const TextStyle(
                           color: Colors.white,
                           fontFamily: 'Noto Sans TC',
@@ -183,8 +186,8 @@ class _SignupFlowNameState extends State<SignupFlowName> {
                         ),
                         onChanged: (val) {
                           setState(() {
-                            name = val.trim();
-                            debugPrint('name= $name');
+                            userEmail = val.trim();
+                            debugPrint('userEmail= $userEmail');
                           });
                         },
                         decoration: const InputDecoration(
@@ -194,7 +197,7 @@ class _SignupFlowNameState extends State<SignupFlowName> {
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Color(0xFFD0D5DD)),
                           ),
-                          hintText: "不能輸入表情符號喔～",
+                          hintText: "ex. happiness@gmail.com",
                           hintStyle: TextStyle(
                             color: Color.fromRGBO(255, 255, 255, 0.2),
                             fontFamily: 'Noto Sans TC',
@@ -204,6 +207,18 @@ class _SignupFlowNameState extends State<SignupFlowName> {
                           //isDense: true,
                         ),
                       ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      const Text(
+                        '不能輸入表情符號喔!',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Noto Sans TC',
+                          fontSize: 13,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -211,41 +226,76 @@ class _SignupFlowNameState extends State<SignupFlowName> {
               const SizedBox(
                 height: 183,
               ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width > 400 ? 350 : 300,
-                height: 56,
-                child: ElevatedButton(
-                  //If onPressed and onLongPress callbacks are null, then the button will be disabled.
-                  onPressed: () {
-                    debugPrint('下一步: $name');
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SignupFlowInfo(
-                                  userName: name,
-                                )));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0.0,
-                    primary: name.isNotEmpty
-                        ? const Color(0xFF33C2CF)
-                        : const Color(0xFFE4E7EC),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(68.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width > 400 ? 163 : 150,
+                    height: 56,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        debugPrint('上一步: $userEmail');
+                        Navigator.pop(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                          elevation: 0.0,
+                          primary:
+                              Colors.black.withOpacity(0), // background color
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(68.0),
+                          ),
+                          side: const BorderSide(
+                              width: 1.0, color: Color(0xFF33C2CF))),
+                      child: const Text(
+                        '上一步',
+                        style: TextStyle(
+                          color: Color(0xFFAAE6EE),
+                          fontFamily: 'Noto Sans TC',
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
                     ),
                   ),
-                  child: Text(
-                    '下一步',
-                    style: TextStyle(
-                      color: name.isNotEmpty
-                          ? Colors.white
-                          : const Color(0xFFB5BEBE),
-                      fontFamily: 'Noto Sans TC',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
+                  const SizedBox(
+                    width: 24,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width > 400 ? 163 : 150,
+                    height: 56,
+                    child: ElevatedButton(
+                      //If onPressed and onLongPress callbacks are null, then the button will be disabled.
+                      onPressed: () {
+                        debugPrint('下一步: $userEmail');
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    SignupFlowPassword(userName: userName)));
+                      },
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0.0,
+                        primary: userEmail.isNotEmpty
+                            ? const Color(0xFF33C2CF)
+                            : const Color(0xFFE4E7EC),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(68.0),
+                        ),
+                      ),
+                      child: Text(
+                        '下一步',
+                        style: TextStyle(
+                          color: userEmail.isNotEmpty
+                              ? Colors.white
+                              : const Color(0xFFB5BEBE),
+                          fontFamily: 'Noto Sans TC',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
             ],
           ),

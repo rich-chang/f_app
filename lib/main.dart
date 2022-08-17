@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-
-import 'screen/splash.dart';
-import 'screen/onboarding/onboarding_page.dart';
-import 'screen/signup/signup_page.dart';
-import 'screen/signup/agreement_page.dart';
-import 'screen/signup/signup_flow_name.dart';
-import 'screen/login/login_page.dart';
+import 'package:florish_app/screen/splash.dart';
+import 'package:florish_app/screen/onboarding/onboarding_page.dart';
+import 'package:florish_app/screen/login/login_page.dart';
+import 'package:florish_app/screen/signup/agreement_page.dart';
+import 'package:florish_app/screen/signup/signup_page.dart';
+import 'package:florish_app/screen/signup/signup_flow_name.dart';
+import 'package:florish_app/screen/signup/signup_flow_info.dart';
+import 'package:florish_app/screen/signup/signup_flow_email.dart';
+import 'package:florish_app/screen/signup/signup_flow_password.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,172 +56,222 @@ class _TempHomeState extends State<TempHome> {
         title: const Text('Testing Home page'),
       ),
       body: Container(
-        margin: EdgeInsets.symmetric(vertical: 36),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Center(
-              child: SizedBox(
-                width: 300,
-                height: 56,
-                child: ElevatedButton(
-                  //If onPressed and onLongPress callbacks are null, then the button will be disabled.
-                  onPressed: () {
-                    debugPrint('Splash page');
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SplashPage()));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0.0,
-                    primary: const Color(0xFF33C2CF),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(68.0),
+        margin: const EdgeInsets.symmetric(vertical: 36),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Center(
+                child: SizedBox(
+                  width: 300,
+                  height: 56,
+                  child: ElevatedButton(
+                    //If onPressed and onLongPress callbacks are null, then the button will be disabled.
+                    onPressed: () {
+                      debugPrint('Splash page');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SplashPage()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0.0,
+                      primary: const Color(0xFF33C2CF),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(68.0),
+                      ),
                     ),
-                  ),
-                  child: Text(
-                    'Splash page',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Noto Sans TC',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Center(
-              child: SizedBox(
-                width: 300,
-                height: 56,
-                child: ElevatedButton(
-                  //If onPressed and onLongPress callbacks are null, then the button will be disabled.
-                  onPressed: () {
-                    debugPrint('Onboarding page');
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const OnBoardingPage()));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0.0,
-                    primary: const Color(0xFF33C2CF),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(68.0),
-                    ),
-                  ),
-                  child: Text(
-                    'Onboarding page',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Noto Sans TC',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
+                    child: const Text(
+                      'Splash page',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Noto Sans TC',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Center(
-              child: SizedBox(
-                width: 300,
-                height: 56,
-                child: ElevatedButton(
-                  //If onPressed and onLongPress callbacks are null, then the button will be disabled.
-                  onPressed: () {
-                    debugPrint('Login page');
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginPage()));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0.0,
-                    primary: const Color(0xFF33C2CF),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(68.0),
+              const SizedBox(
+                height: 32,
+              ),
+              Center(
+                child: SizedBox(
+                  width: 300,
+                  height: 56,
+                  child: ElevatedButton(
+                    //If onPressed and onLongPress callbacks are null, then the button will be disabled.
+                    onPressed: () {
+                      debugPrint('Onboarding page');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const OnBoardingPage()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0.0,
+                      primary: const Color(0xFF33C2CF),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(68.0),
+                      ),
                     ),
-                  ),
-                  child: Text(
-                    'Login page',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Noto Sans TC',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
+                    child: const Text(
+                      'Onboarding page',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Noto Sans TC',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Center(
-              child: SizedBox(
-                width: 300,
-                height: 56,
-                child: ElevatedButton(
-                  //If onPressed and onLongPress callbacks are null, then the button will be disabled.
-                  onPressed: () {
-                    debugPrint('Signup main page');
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SignupPage()));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0.0,
-                    primary: const Color(0xFF33C2CF),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(68.0),
+              const SizedBox(
+                height: 32,
+              ),
+              Center(
+                child: SizedBox(
+                  width: 300,
+                  height: 56,
+                  child: ElevatedButton(
+                    //If onPressed and onLongPress callbacks are null, then the button will be disabled.
+                    onPressed: () {
+                      debugPrint('Login page');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginPage()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0.0,
+                      primary: const Color(0xFF33C2CF),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(68.0),
+                      ),
                     ),
-                  ),
-                  child: Text(
-                    'Signup page',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Noto Sans TC',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
+                    child: const Text(
+                      'Login page',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Noto Sans TC',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Center(
-              child: SizedBox(
-                width: 300,
-                height: 56,
-                child: ElevatedButton(
-                  //If onPressed and onLongPress callbacks are null, then the button will be disabled.
-                  onPressed: () {
-                    debugPrint('Signup flow - name');
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SignupFlowName()));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0.0,
-                    primary: const Color(0xFF33C2CF),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(68.0),
+              const SizedBox(
+                height: 32,
+              ),
+              Center(
+                child: SizedBox(
+                  width: 300,
+                  height: 56,
+                  child: ElevatedButton(
+                    //If onPressed and onLongPress callbacks are null, then the button will be disabled.
+                    onPressed: () {
+                      debugPrint('Register Agreement');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AgreementPage()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0.0,
+                      primary: const Color(0xFF33C2CF),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(68.0),
+                      ),
                     ),
-                  ),
-                  child: Text(
-                    'Signup flow - name',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Noto Sans TC',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
+                    child: const Text(
+                      'Register Agreement',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Noto Sans TC',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+              const SizedBox(
+                height: 32,
+              ),
+              Center(
+                child: SizedBox(
+                  width: 300,
+                  height: 56,
+                  child: ElevatedButton(
+                    //If onPressed and onLongPress callbacks are null, then the button will be disabled.
+                    onPressed: () {
+                      debugPrint('Signup main page');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignupPage()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0.0,
+                      primary: const Color(0xFF33C2CF),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(68.0),
+                      ),
+                    ),
+                    child: const Text(
+                      'Signup page',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Noto Sans TC',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 32,
+              ),
+              Center(
+                child: SizedBox(
+                  width: 300,
+                  height: 56,
+                  child: ElevatedButton(
+                    //If onPressed and onLongPress callbacks are null, then the button will be disabled.
+                    onPressed: () {
+                      debugPrint('Signup flow - name');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignupFlowName()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0.0,
+                      primary: const Color(0xFF33C2CF),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(68.0),
+                      ),
+                    ),
+                    child: const Text(
+                      'Signup flow - name',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Noto Sans TC',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 32,
+              ),
+            ],
+          ),
         ),
       ),
     );
