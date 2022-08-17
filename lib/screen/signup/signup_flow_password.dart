@@ -237,7 +237,7 @@ class _SignupFlowPasswordState extends State<SignupFlowPassword> {
                         ),
                       ),
                       TextFormField(
-                        obscureText: !_passwordVisible,
+                        obscureText: !_checkedPasswordVisible,
                         keyboardType: TextInputType.visiblePassword,
                         style: const TextStyle(
                           color: Colors.white,
@@ -262,15 +262,16 @@ class _SignupFlowPasswordState extends State<SignupFlowPassword> {
                           suffix: IconButton(
                             onPressed: () {
                               setState(() {
-                                _passwordVisible = !_passwordVisible;
+                                _checkedPasswordVisible =
+                                    !_checkedPasswordVisible;
                                 debugPrint(
-                                    '_passwordVisible= $_passwordVisible');
+                                    '_checkedPasswordVisible= $_checkedPasswordVisible');
                               });
                             },
-                            icon: Icon(_passwordVisible
+                            icon: Icon(_checkedPasswordVisible
                                 ? Icons.visibility
                                 : Icons.visibility_off),
-                            color: Color(0xFFAAE6EE),
+                            color: const Color(0xFFAAE6EE),
                           ),
                         ),
                       ),
