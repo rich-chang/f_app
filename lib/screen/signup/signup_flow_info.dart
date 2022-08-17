@@ -22,7 +22,7 @@ class _SignupFlowInfoState extends State<SignupFlowInfo> {
   TextEditingController dateCtl = TextEditingController();
   TextEditingController jobCtl = TextEditingController();
   Gender selectedGender = Gender.none;
-  late DateTime dateOfBirth;
+  late DateTime dateOfBirth = DateTime.utc(1911, 1, 1, 12, 00);
 
   @override
   Widget build(BuildContext context) {
@@ -353,6 +353,88 @@ class _SignupFlowInfoState extends State<SignupFlowInfo> {
                     ),
                   ],
                 ),
+              ),
+              const SizedBox(
+                height: 215,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width > 400 ? 163 : 150,
+                    height: 56,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        debugPrint("上一步");
+                        Navigator.pop(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                          elevation: 0.0,
+                          primary:
+                              Colors.black.withOpacity(0), // background color
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(68.0),
+                          ),
+                          side: const BorderSide(
+                              width: 1.0, color: Color(0xFF33C2CF))),
+                      child: const Text(
+                        '上一步',
+                        style: TextStyle(
+                          color: Color(0xFFAAE6EE),
+                          fontFamily: 'Noto Sans TC',
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 24,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width > 400 ? 163 : 150,
+                    height: 56,
+                    child: ElevatedButton(
+                      //If onPressed and onLongPress callbacks are null, then the button will be disabled.
+                      onPressed: () {
+                        debugPrint(
+                            '下一步. dateOfBirth=$dateOfBirth, selectedGender=$selectedGender, job=()');
+                        /*
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignupFlowInfo(
+                                      userName: name,
+                                    )));
+                                    */
+                      },
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0.0,
+                        primary: selectedGender != Gender.none
+                            ? const Color(0xFF33C2CF)
+                            : const Color(0xFFE4E7EC),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(68.0),
+                        ),
+                      ),
+                      child: Text(
+                        '下一步',
+                        style: TextStyle(
+                          color: selectedGender != Gender.none
+                              ? Colors.white
+                              : const Color(0xFFB5BEBE),
+                          fontFamily: 'Noto Sans TC',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 82,
               ),
             ],
           ),
