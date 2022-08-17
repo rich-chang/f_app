@@ -255,7 +255,7 @@ class _SignupFlowEmailState extends State<SignupFlowEmail> {
                     ),
                   ),
                   const SizedBox(
-                    height: 24,
+                    width: 24,
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width > 400 ? 163 : 150,
