@@ -125,7 +125,7 @@ class _SignupFlowPasswordState extends State<SignupFlowPassword> {
                     Text(
                       '設定密碼',
                       style: TextStyle(
-                        color: Color(0xFFAAE6EE),
+                        color: Colors.white,
                         fontFamily: 'Noto Sans TC',
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
