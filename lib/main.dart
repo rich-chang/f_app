@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'screen/splash.dart';
-import 'screen/onboarding_intro.dart';
+import 'screen/onboarding/onboarding_page.dart';
+import 'screen/signup/signup_page.dart';
+import 'screen/signup/agreement_page.dart';
+import 'screen/signup/signup_flow_name.dart';
+import 'screen/login/login_page.dart';
 
 Future<void> main() async {
   runApp(MyApp());
@@ -26,7 +31,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: OnBoardingPage(),
+      home: SignupFlowName(),
     );
   }
 }

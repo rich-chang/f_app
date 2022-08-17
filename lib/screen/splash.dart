@@ -11,11 +11,13 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // https://stackoverflow.com/questions/45745448/how-do-i-stretch-an-image-to-fit-the-whole-background-100-height-x-100-width
-      body: Center(
-        child: Image.asset(
-          'images/splash.png',
-          fit: BoxFit.fill,
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.fill,
+            image: AssetImage('images/splash.png'),
+          ),
         ),
       ),
     );
