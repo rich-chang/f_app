@@ -43,14 +43,20 @@ class _SignupFlowInfoState extends State<SignupFlowInfo> {
           backgroundColor: const Color(0x00000000),
           elevation: 0.0,
           leadingWidth: 70,
-          leading: const Center(
-            child: Text(
-              '<  返回',
-              style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'SF Pro Text',
-                fontSize: 17,
-                fontWeight: FontWeight.w400,
+          leading: Center(
+            child: TextButton(
+              onPressed: () {
+                debugPrint('<  返回');
+                Navigator.pop(context);
+              },
+              child: const Text(
+                '<  返回',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'SF Pro Text',
+                  fontSize: 17,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ),
           ),
@@ -89,7 +95,7 @@ class _SignupFlowInfoState extends State<SignupFlowInfo> {
               Container(
                 margin: EdgeInsets.symmetric(
                     horizontal:
-                    MediaQuery.of(context).size.width > 400 ? 40 : 16),
+                        MediaQuery.of(context).size.width > 400 ? 40 : 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
@@ -186,19 +192,19 @@ class _SignupFlowInfoState extends State<SignupFlowInfo> {
                             },
                             child: selectedGender == Gender.male
                                 ? SvgPicture.asset(
-                              'images/gender_male_selected.svg',
-                              width: MediaQuery.of(context).size.width >
-                                  400
-                                  ? 106
-                                  : 96,
-                            )
+                                    'images/gender_male_selected.svg',
+                                    width:
+                                        MediaQuery.of(context).size.width > 400
+                                            ? 106
+                                            : 96,
+                                  )
                                 : SvgPicture.asset(
-                              'images/gender_male_default.svg',
-                              width: MediaQuery.of(context).size.width >
-                                  400
-                                  ? 106
-                                  : 96,
-                            )),
+                                    'images/gender_male_default.svg',
+                                    width:
+                                        MediaQuery.of(context).size.width > 400
+                                            ? 106
+                                            : 96,
+                                  )),
                         GestureDetector(
                             onTap: () {
                               setState(() {
@@ -208,19 +214,19 @@ class _SignupFlowInfoState extends State<SignupFlowInfo> {
                             },
                             child: selectedGender == Gender.female
                                 ? SvgPicture.asset(
-                              'images/gender_female_selected.svg',
-                              width: MediaQuery.of(context).size.width >
-                                  400
-                                  ? 106
-                                  : 96,
-                            )
+                                    'images/gender_female_selected.svg',
+                                    width:
+                                        MediaQuery.of(context).size.width > 400
+                                            ? 106
+                                            : 96,
+                                  )
                                 : SvgPicture.asset(
-                              'images/gender_female_default.svg',
-                              width: MediaQuery.of(context).size.width >
-                                  400
-                                  ? 106
-                                  : 96,
-                            )),
+                                    'images/gender_female_default.svg',
+                                    width:
+                                        MediaQuery.of(context).size.width > 400
+                                            ? 106
+                                            : 96,
+                                  )),
                         GestureDetector(
                             onTap: () {
                               setState(() {
@@ -230,19 +236,19 @@ class _SignupFlowInfoState extends State<SignupFlowInfo> {
                             },
                             child: selectedGender == Gender.other
                                 ? SvgPicture.asset(
-                              'images/gender_other_selected.svg',
-                              width: MediaQuery.of(context).size.width >
-                                  400
-                                  ? 106
-                                  : 96,
-                            )
+                                    'images/gender_other_selected.svg',
+                                    width:
+                                        MediaQuery.of(context).size.width > 400
+                                            ? 106
+                                            : 96,
+                                  )
                                 : SvgPicture.asset(
-                              'images/gender_other_default.svg',
-                              width: MediaQuery.of(context).size.width >
-                                  400
-                                  ? 106
-                                  : 96,
-                            )),
+                                    'images/gender_other_default.svg',
+                                    width:
+                                        MediaQuery.of(context).size.width > 400
+                                            ? 106
+                                            : 96,
+                                  )),
                       ],
                     ),
                     const SizedBox(
@@ -277,7 +283,7 @@ class _SignupFlowInfoState extends State<SignupFlowInfo> {
 
                         dateOfBirth = date;
                         dateCtl.text =
-                        "${date.year.toString()} / ${date.month.toString().padLeft(2, '0')} / ${date.day.toString().padLeft(2, '0')}";
+                            "${date.year.toString()} / ${date.month.toString().padLeft(2, '0')} / ${date.day.toString().padLeft(2, '0')}";
                         //dateCtl.text = date.toIso8601String();
                       },
                       onChanged: (val) {

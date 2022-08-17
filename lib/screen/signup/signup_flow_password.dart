@@ -45,14 +45,20 @@ class _SignupFlowPasswordState extends State<SignupFlowPassword> {
           backgroundColor: const Color(0x00000000),
           elevation: 0.0,
           leadingWidth: 70,
-          leading: const Center(
-            child: Text(
-              '<  返回',
-              style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'SF Pro Text',
-                fontSize: 17,
-                fontWeight: FontWeight.w400,
+          leading: Center(
+            child: TextButton(
+              onPressed: () {
+                debugPrint('<  返回');
+                Navigator.pop(context);
+              },
+              child: const Text(
+                '<  返回',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'SF Pro Text',
+                  fontSize: 17,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ),
           ),
