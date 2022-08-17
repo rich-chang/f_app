@@ -228,7 +228,7 @@ class _SignupFlowVerifyEmailCompletedState
                       ),
                     ),
                     child: const Text(
-                      '下一步',
+                      '開始體驗吧',
                       style: TextStyle(
                         color: Colors.white,
                         fontFamily: 'Noto Sans TC',
