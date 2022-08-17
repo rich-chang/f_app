@@ -14,11 +14,15 @@ class SignupFlowPassword extends StatefulWidget {
 class _SignupFlowPasswordState extends State<SignupFlowPassword> {
   late String userPassword;
   late bool _passwordVisible;
+  late String userCheckedPassword;
+  late bool _checkedPasswordVisible;
 
   @override
   void initState() {
     _passwordVisible = false;
+    _checkedPasswordVisible = false;
     userPassword = '';
+    userCheckedPassword = '';
     super.initState();
   }
 
@@ -243,8 +247,9 @@ class _SignupFlowPasswordState extends State<SignupFlowPassword> {
                         ),
                         onChanged: (val) {
                           setState(() {
-                            userPassword = val.trim();
-                            debugPrint('userPassword= $userPassword');
+                            userCheckedPassword = val.trim();
+                            debugPrint(
+                                'userCheckedPassword= $userCheckedPassword');
                           });
                         },
                         decoration: InputDecoration(
@@ -265,9 +270,38 @@ class _SignupFlowPasswordState extends State<SignupFlowPassword> {
                             icon: Icon(_passwordVisible
                                 ? Icons.visibility
                                 : Icons.visibility_off),
-                            color: const Color(0xFFAAE6EE),
+                            color: Color(0xFFAAE6EE),
                           ),
                         ),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Row(
+                        children: [
+                          SvgPicture.asset(
+                            'images/password_checkmark.svg',
+                            color: (userPassword == userCheckedPassword &&
+                                    userCheckedPassword.isNotEmpty)
+                                ? Colors.white
+                                : const Color.fromRGBO(255, 255, 255, 0.44),
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            '輸入正確',
+                            style: TextStyle(
+                              color: (userPassword == userCheckedPassword &&
+                                      userCheckedPassword.isNotEmpty)
+                                  ? Colors.white
+                                  : const Color.fromRGBO(255, 255, 255, 0.44),
+                              fontFamily: 'Noto Sans TC',
+                              fontSize: 13,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
