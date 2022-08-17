@@ -25,10 +25,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(25),
         ),
-        color: _currentPage == index ? Color(0xFF33C2CF) : const Color.fromRGBO(51, 194, 207, 0.2),
+        color: _currentPage == index
+            ? const Color(0xFF33C2CF)
+            : const Color.fromRGBO(51, 194, 207, 0.2),
       ),
       margin: const EdgeInsets.only(right: 5),
       curve: Curves.easeIn,
@@ -42,8 +44,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     SizeConfig().init(context);
     double width = SizeConfig.screenW!;
     double height = SizeConfig.screenH!;
-    double blockH = SizeConfig.blockH!;
-    double blockV = SizeConfig.blockV!;
 
     return Scaffold(
       backgroundColor: colors[_currentPage],
@@ -57,46 +57,43 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 onPageChanged: (value) => setState(() => _currentPage = value),
                 itemCount: contents.length,
                 itemBuilder: (context, i) {
-                  return Container(
-                    // color: colors[i],
-                    child: Padding(
-                      padding: const EdgeInsets.all(40.0),
-                      child: Column(
-                        children: [
-                          Image.asset(
-                            contents[i].image,
-                            height: SizeConfig.blockV! * 35,
+                  return Padding(
+                    padding: const EdgeInsets.all(40.0),
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          contents[i].image,
+                          height: SizeConfig.blockV! * 35,
+                        ),
+                        SizedBox(
+                          height: (height >= 840) ? 60 : 30,
+                        ),
+                        Text(
+                          contents[i].title,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Color(0xFF33C2CF),
+                            fontFamily: "Noto Sans TC",
+                            fontWeight: FontWeight.w700,
+                            fontSize: 32,
+                            height: 40 / 32,
                           ),
-                          SizedBox(
-                            height: (height >= 840) ? 60 : 30,
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          contents[i].desc,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Color(0xFF344854),
+                            fontFamily: "Noto Sans TC",
+                            fontWeight: FontWeight.w400,
+                            fontSize: 24,
+                            height: 40 / 24,
                           ),
-                          Text(
-                            contents[i].title,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Color(0xFF33C2CF),
-                              fontFamily: "Noto Sans TC",
-                              fontWeight: FontWeight.w700,
-                              fontSize: 32,
-                              height: 40 / 32,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            contents[i].desc,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Color(0xFF344854),
-                              fontFamily: "Noto Sans TC",
-                              fontWeight: FontWeight.w400,
-                              fontSize: 24,
-                              height: 40 / 24,
-                            ),
-                          )
-                        ],
-                      ),
+                        )
+                      ],
                     ),
                   );
                 },
@@ -119,15 +116,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           padding: const EdgeInsets.all(30),
                           child: ElevatedButton(
                             onPressed: () {},
-                            child: Text("進入體驗吧"),
                             style: ElevatedButton.styleFrom(
                               primary: Colors.black,
-                              shape: new RoundedRectangleBorder(
+                              shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50),
                               ),
-                              padding: (width <= 550) ? EdgeInsets.symmetric(horizontal: 100, vertical: 20) : EdgeInsets.symmetric(horizontal: width * 0.2, vertical: 25),
-                              textStyle: TextStyle(fontSize: (width <= 550) ? 13 : 17),
+                              padding: (width <= 550)
+                                  ? const EdgeInsets.symmetric(
+                                      horizontal: 100, vertical: 20)
+                                  : EdgeInsets.symmetric(
+                                      horizontal: width * 0.2, vertical: 25),
+                              textStyle:
+                                  TextStyle(fontSize: (width <= 550) ? 13 : 17),
                             ),
+                            child: const Text("進入體驗吧"),
                           ),
                         )
                       : Padding(
@@ -140,7 +142,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   debugPrint("_currentPage:$_currentPage: 跳過");
                                   _controller.jumpToPage(2);
                                 },
-                                child: Text(
+                                style: TextButton.styleFrom(
+                                  elevation: 0,
+                                  textStyle: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: (width <= 550) ? 13 : 17,
+                                  ),
+                                ),
+                                child: const Text(
                                   "跳過",
                                   style: TextStyle(
                                     color: Color(0xFF667C85),
@@ -149,35 +158,33 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                     height: 16.41 / 14,
                                   ),
                                 ),
-                                style: TextButton.styleFrom(
-                                  elevation: 0,
-                                  textStyle: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: (width <= 550) ? 13 : 17,
-                                  ),
-                                ),
                               ),
                               ElevatedButton(
                                 onPressed: () {
                                   _controller.nextPage(
-                                    duration: Duration(milliseconds: 200),
+                                    duration: const Duration(milliseconds: 200),
                                     curve: Curves.easeIn,
                                   );
                                 },
-                                child: Text("下一個"),
                                 style: ElevatedButton.styleFrom(
-                                  primary: const Color(0xFF33C2CF), // background color
-                                  shape: new RoundedRectangleBorder(
+                                  primary: const Color(
+                                      0xFF33C2CF), // background color
+                                  shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(68),
                                   ),
                                   elevation: 0,
-                                  padding: (width <= 550) ? EdgeInsets.symmetric(horizontal: 30, vertical: 20) : EdgeInsets.symmetric(horizontal: 30, vertical: 25),
-                                  textStyle: TextStyle(
+                                  padding: (width <= 550)
+                                      ? const EdgeInsets.symmetric(
+                                          horizontal: 30, vertical: 20)
+                                      : const EdgeInsets.symmetric(
+                                          horizontal: 30, vertical: 25),
+                                  textStyle: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w400,
                                     height: 20 / 14,
                                   ),
                                 ),
+                                child: const Text("下一個"),
                               ),
                             ],
                           ),

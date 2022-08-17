@@ -15,12 +15,10 @@ class SignupFlowInfoContainer extends StatefulWidget {
 class _SignupFlowInfoContainerState extends State<SignupFlowInfoContainer> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Text(widget.userName),
-        ],
-      ),
+    return Column(
+      children: [
+        Text(widget.userName),
+      ],
     );
   }
 }

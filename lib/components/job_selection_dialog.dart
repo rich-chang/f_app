@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:florish_app/components/job_list_content.dart';
 
 showJobSelectionDialog(BuildContext context) {
-  int _selectedJob = 0;
+  int selectedJob = 0;
 
   // Init
   AlertDialog dialog = AlertDialog(
@@ -31,7 +31,7 @@ showJobSelectionDialog(BuildContext context) {
           },
           style: ElevatedButton.styleFrom(
             elevation: 0.0,
-            primary: _selectedJob > 0
+            primary: selectedJob > 0
                 ? const Color(0xFF33C2CF)
                 : const Color(0xFFE4E7EC),
             shape: RoundedRectangleBorder(
@@ -41,7 +41,7 @@ showJobSelectionDialog(BuildContext context) {
           child: Text(
             "確認",
             style: TextStyle(
-              color: _selectedJob > 0 ? Colors.white : const Color(0xFFB5BEBE),
+              color: selectedJob > 0 ? Colors.white : const Color(0xFFB5BEBE),
               fontFamily: 'Noto Sans TC',
               fontSize: 16,
               fontWeight: FontWeight.w700,
@@ -83,16 +83,16 @@ showJobSelectionDialog(BuildContext context) {
                                 ),
                               ),
                               value: index,
-                              groupValue: _selectedJob,
+                              groupValue: selectedJob,
                               onChanged: (value) {
-                                setState(() => _selectedJob = index);
-                                debugPrint('_selectedJob: $_selectedJob');
+                                setState(() => selectedJob = index);
+                                debugPrint('_selectedJob: $selectedJob');
                               }),
                           SizedBox(
                             height: 16,
                             child: Center(
                               child: Container(
-                                color: Color(0xFFD9D9D9),
+                                color: const Color(0xFFD9D9D9),
                                 height: 1,
                               ),
                             ),

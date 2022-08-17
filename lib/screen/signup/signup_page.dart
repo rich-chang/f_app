@@ -48,8 +48,8 @@ class _SignupPageState extends State<SignupPage> {
                     },
                     style: ElevatedButton.styleFrom(
                       elevation: 0.0,
-                      primary: Color(0xFF33C2CF), // background color
-                      onSurface: Color(0x00FFFFFF), // Disable color
+                      primary: const Color(0xFF33C2CF), // background color
+                      onSurface: const Color(0x00FFFFFF), // Disable color
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(68.0),
                       ),

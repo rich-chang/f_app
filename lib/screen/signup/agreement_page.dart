@@ -17,7 +17,6 @@ class AgreementPage extends StatefulWidget {
 }
 
 class _AgreementPageState extends State<AgreementPage> {
-  int current_page = 0;
   bool agree = false;
 
   @override
@@ -76,7 +75,7 @@ class _AgreementPageState extends State<AgreementPage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 12, bottom: 25),
+                margin: const EdgeInsets.only(top: 12, bottom: 25),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
@@ -117,7 +116,7 @@ class _AgreementPageState extends State<AgreementPage> {
                   width: 350,
                   height: 479,
                   child: SingleChildScrollView(
-                    padding: EdgeInsets.all(24),
+                    padding: const EdgeInsets.all(24),
                     child: Text(
                       agreementContents[0].content,
                       style: const TextStyle(
@@ -181,7 +180,7 @@ class _AgreementPageState extends State<AgreementPage> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 47,
               ),
               Row(
@@ -199,7 +198,7 @@ class _AgreementPageState extends State<AgreementPage> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(68.0),
                           ),
-                          side: BorderSide(
+                          side: const BorderSide(
                             width: 1,
                             color: Colors.white,
                           )),
@@ -214,7 +213,7 @@ class _AgreementPageState extends State<AgreementPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 24,
                   ),
                   SizedBox(
@@ -225,8 +224,8 @@ class _AgreementPageState extends State<AgreementPage> {
                       style: ElevatedButton.styleFrom(
                         elevation: 0.0,
                         primary: agree
-                            ? Color(0xFF33C2CF)
-                            : Color(0xFFE4E7EC), // background color
+                            ? const Color(0xFF33C2CF)
+                            : const Color(0xFFE4E7EC), // background color
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(68.0),
                         ),
@@ -234,7 +233,7 @@ class _AgreementPageState extends State<AgreementPage> {
                       child: Text(
                         '下一步',
                         style: TextStyle(
-                          color: agree ? Colors.white : Color(0xFFB5BEBE),
+                          color: agree ? Colors.white : const Color(0xFFB5BEBE),
                           fontFamily: 'Noto Sans TC',
                           fontSize: 16.0,
                           fontWeight: FontWeight.w400,

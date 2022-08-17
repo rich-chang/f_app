@@ -5,9 +5,6 @@ import 'package:florish_app/screen/login/login_page.dart';
 import 'package:florish_app/screen/signup/agreement_page.dart';
 import 'package:florish_app/screen/signup/signup_page.dart';
 import 'package:florish_app/screen/signup/signup_flow_name.dart';
-import 'package:florish_app/screen/signup/signup_flow_info.dart';
-import 'package:florish_app/screen/signup/signup_flow_email.dart';
-import 'package:florish_app/screen/signup/signup_flow_password.dart';
 
 void main() {
   runApp(const MyApp());
