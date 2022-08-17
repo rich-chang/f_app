@@ -1,4 +1,4 @@
-package com.florish.florish_app
+package com.florish
 
 import io.flutter.embedding.android.FlutterActivity
 

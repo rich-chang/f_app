@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.florish.florish_app">
+    package="com.florish">
    <application
         android:label="florish_app"
         android:name="${applicationName}"
