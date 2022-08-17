@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:florish_app/screen/signup/signup_flow_verify_email_completed.dart';
 
 class SignupFlowVerifyEmail extends StatefulWidget {
   const SignupFlowVerifyEmail({Key? key, required this.userName})
@@ -11,7 +12,15 @@ class SignupFlowVerifyEmail extends StatefulWidget {
 }
 
 class _SignupFlowVerifyEmailState extends State<SignupFlowVerifyEmail> {
-  bool isEmailVerified = false;
+  late String userName;
+  late bool isEmailVerified;
+
+  @override
+  void initState() {
+    userName = widget.userName;
+    isEmailVerified = false;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -203,14 +212,12 @@ class _SignupFlowVerifyEmailState extends State<SignupFlowVerifyEmail> {
                     //If onPressed and onLongPress callbacks are null, then the button will be disabled.
                     onPressed: () {
                       debugPrint('下一步');
-                      /*
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SignupFlowInfo(
-                                    userName: name,
-                                  )));
-                                  */
+                              builder: (context) =>
+                                  SignupFlowVerifyEmailCompleted(
+                                      userName: userName)));
                     },
                     style: ElevatedButton.styleFrom(
                       elevation: 0.0,

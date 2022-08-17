@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:florish_app/components/job_selection_dialog.dart';
+import 'package:florish_app/screen/signup/signup_flow_email.dart';
 
 class SignupFlowInfo extends StatefulWidget {
   const SignupFlowInfo({Key? key, required this.userName}) : super(key: key);
@@ -22,7 +23,15 @@ class _SignupFlowInfoState extends State<SignupFlowInfo> {
   TextEditingController dateCtl = TextEditingController();
   TextEditingController jobCtl = TextEditingController();
   Gender selectedGender = Gender.none;
-  late DateTime dateOfBirth = DateTime.utc(1911, 1, 1, 12, 00);
+  late DateTime dateOfBirth;
+  late String userName;
+
+  @override
+  void initState() {
+    userName = widget.userName;
+    dateOfBirth = DateTime.utc(1911, 1, 1, 12, 00);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -400,14 +409,12 @@ class _SignupFlowInfoState extends State<SignupFlowInfo> {
                       onPressed: () {
                         debugPrint(
                             '下一步. dateOfBirth=$dateOfBirth, selectedGender=$selectedGender, job=()');
-                        /*
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SignupFlowInfo(
-                                      userName: name,
+                                builder: (context) => SignupFlowEmail(
+                                      userName: userName,
                                     )));
-                                    */
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 0.0,

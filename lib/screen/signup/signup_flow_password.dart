@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:florish_app/screen/signup/signup_flow_verify_email.dart';
 
 class SignupFlowPassword extends StatefulWidget {
   const SignupFlowPassword({Key? key, required this.userName})
@@ -12,6 +13,7 @@ class SignupFlowPassword extends StatefulWidget {
 }
 
 class _SignupFlowPasswordState extends State<SignupFlowPassword> {
+  late String userName;
   late String userPassword;
   late bool _passwordVisible;
   late String userCheckedPassword;
@@ -19,6 +21,7 @@ class _SignupFlowPasswordState extends State<SignupFlowPassword> {
 
   @override
   void initState() {
+    userName = widget.userName;
     _passwordVisible = false;
     _checkedPasswordVisible = false;
     userPassword = '';
@@ -359,14 +362,11 @@ class _SignupFlowPasswordState extends State<SignupFlowPassword> {
                       //If onPressed and onLongPress callbacks are null, then the button will be disabled.
                       onPressed: () {
                         debugPrint('下一步: $userPassword');
-                        /*
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SignupFlowInfo(
-                                      userName: name,
-                                    )));
-                                    */
+                                builder: (context) =>
+                                    SignupFlowVerifyEmail(userName: userName)));
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 0.0,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:florish_app/screen/signup/signup_flow_password.dart';
 
 class SignupFlowEmail extends StatefulWidget {
   const SignupFlowEmail({Key? key, required this.userName}) : super(key: key);
@@ -10,10 +11,12 @@ class SignupFlowEmail extends StatefulWidget {
 }
 
 class _SignupFlowEmailState extends State<SignupFlowEmail> {
+  late String userName;
   late String userEmail;
 
   @override
   void initState() {
+    userName = widget.userName;
     userEmail = '';
     super.initState();
   }
@@ -221,10 +224,10 @@ class _SignupFlowEmailState extends State<SignupFlowEmail> {
                 ),
               ),
               const SizedBox(
-                width: 183,
+                height: 183,
               ),
               Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width > 400 ? 163 : 150,
@@ -264,14 +267,11 @@ class _SignupFlowEmailState extends State<SignupFlowEmail> {
                       //If onPressed and onLongPress callbacks are null, then the button will be disabled.
                       onPressed: () {
                         debugPrint('下一步: $userEmail');
-                        /*
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SignupFlowInfo(
-                                      userName: name,
-                                    )));
-                                    */
+                                builder: (context) =>
+                                    SignupFlowPassword(userName: userName)));
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 0.0,
