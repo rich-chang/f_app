@@ -293,6 +293,41 @@ class _TempHomeState extends State<TempHome> {
               const SizedBox(
                 height: 32,
               ),
+              Center(
+                child: SizedBox(
+                  width: 300,
+                  height: 56,
+                  child: ElevatedButton(
+                    //If onPressed and onLongPress callbacks are null, then the button will be disabled.
+                    onPressed: () {
+                      debugPrint('Home');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomePage()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0.0,
+                      primary: const Color(0xFF33C2CF),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(68.0),
+                      ),
+                    ),
+                    child: const Text(
+                      'Home',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Noto Sans TC',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 32,
+              ),
             ],
           ),
         ),
