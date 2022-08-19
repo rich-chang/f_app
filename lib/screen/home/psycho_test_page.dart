@@ -46,8 +46,8 @@ class _PsychoTestState extends State<PsychoTestPage> {
                       children: [
                         Padding(
                           padding: MediaQuery.of(context).size.width > 400
-                              ? const EdgeInsets.only(bottom: 62.0, left: 24)
-                              : const EdgeInsets.only(bottom: 22.0, left: 16),
+                              ? const EdgeInsets.only(bottom: 95.0, left: 24)
+                              : const EdgeInsets.only(bottom: 70.0, left: 16),
                           child: SvgPicture.asset(
                             'images/psycho_test_title.svg',
                             width: MediaQuery.of(context).size.width > 400
@@ -72,13 +72,19 @@ class _PsychoTestState extends State<PsychoTestPage> {
                         ),
                       ],
                     ),
+                  ],
+                ),
+                Column(
+                  children: [
                     SizedBox(
-                      height: MediaQuery.of(context).size.width > 400 ? 31 : 0,
+                      height:
+                          MediaQuery.of(context).size.width > 400 ? 130 : 105,
                     ),
                     Container(
                       width:
                           MediaQuery.of(context).size.width > 400 ? 366 : 320,
-                      height: 100,
+                      height:
+                          MediaQuery.of(context).size.width > 400 ? 100 : 80,
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           begin: Alignment.topCenter,
