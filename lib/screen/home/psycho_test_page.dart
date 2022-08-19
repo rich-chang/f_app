@@ -246,6 +246,94 @@ class _PsychoTestState extends State<PsychoTestPage> {
                         ),
                       ],
                     ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                          margin: EdgeInsets.only(
+                              left: MediaQuery.of(context).size.width > 400
+                                  ? 24
+                                  : 16),
+                          child: SvgPicture.asset(
+                              'images/psycho_test_recommand.svg')),
+                    ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width > 400
+                              ? 24
+                              : 16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            'images/psycho_test_#1.png',
+                            fit: BoxFit.fill,
+                            width: MediaQuery.of(context).size.width > 400
+                                ? 179
+                                : 165,
+                          ),
+                          const SizedBox(
+                            width: 12,
+                          ),
+                          Image.asset(
+                            'images/psycho_test_#2.png',
+                            fit: BoxFit.fill,
+                            width: MediaQuery.of(context).size.width > 400
+                                ? 179
+                                : 165,
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                          margin: EdgeInsets.only(
+                              left: MediaQuery.of(context).size.width > 400
+                                  ? 24
+                                  : 16),
+                          child: SvgPicture.asset(
+                              'images/psycho_test_recent.svg')),
+                    ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width > 400
+                              ? 24
+                              : 16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            'images/psycho_test_#3.png',
+                            fit: BoxFit.fill,
+                            width: MediaQuery.of(context).size.width > 400
+                                ? 179
+                                : 165,
+                          ),
+                          const SizedBox(
+                            width: 12,
+                          ),
+                          Image.asset(
+                            'images/psycho_test_#4.png',
+                            fit: BoxFit.fill,
+                            width: MediaQuery.of(context).size.width > 400
+                                ? 179
+                                : 165,
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ],
