@@ -28,34 +28,43 @@ class _PsychoTestState extends State<PsychoTestPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(bottom: 62.0, left: 24),
+                            padding: MediaQuery.of(context).size.width > 400
+                                ? const EdgeInsets.only(bottom: 62.0, left: 24)
+                                : const EdgeInsets.only(bottom: 62.0, left: 16),
                             child: SvgPicture.asset(
                               'images/psycho_test_title.svg',
-                              width: 128,
+                              width: MediaQuery.of(context).size.width > 400
+                                  ? 128
+                                  : 80,
                               height: 40,
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(right: 6.0),
+                            padding: MediaQuery.of(context).size.width > 400
+                                ? const EdgeInsets.only(right: 6.0)
+                                : const EdgeInsets.only(right: 2.0),
                             child: SvgPicture.asset(
                               'images/psycho_test_logo.svg',
-                              width: 211,
-                              height: 197,
+                              width: MediaQuery.of(context).size.width > 400
+                                  ? 211
+                                  : 169, // 80% ratio
+                              height: MediaQuery.of(context).size.width > 400
+                                  ? 197
+                                  : 158, // 80% ratio
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 31,
+                      SizedBox(
+                        height:
+                            MediaQuery.of(context).size.width > 400 ? 31 : 60,
                       ),
                     ],
                   ),
                   Container(
-                    width: 366,
+                    width: MediaQuery.of(context).size.width > 400 ? 366 : 320,
                     height: 100,
-
                     decoration: BoxDecoration(
-
                       gradient: const LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
