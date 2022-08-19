@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -96,18 +95,156 @@ class _PsychoTestState extends State<PsychoTestPage> {
                         ),
                         borderRadius: BorderRadius.circular(12.0),
                       ),
-                      child: const Padding(
-                        padding: EdgeInsets.fromLTRB(16, 12, 16, 16),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
                         child: Text(
                           '心理測驗可以解釋、分析心理、性格或個人觀點。 Florish 提供豐富心理測驗內容，您可以定時了解當前的狀態。',
                           style: TextStyle(
                             color: Colors.white,
                             fontFamily: 'PingFang TC',
-                            fontSize: 16,
+                            fontSize: MediaQuery.of(context).size.width > 400
+                                ? 16
+                                : 14.5,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
                       ),
+                    ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width:
+                              MediaQuery.of(context).size.width > 400 ? 82 : 76,
+                          height:
+                              MediaQuery.of(context).size.width > 400 ? 82 : 76,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                  'images/psycho_test_category_mental_.svg'),
+                              const SizedBox(
+                                height: 12,
+                              ),
+                              const Text(
+                                "心理健康",
+                                style: TextStyle(
+                                  color: Color(0xFF667C85),
+                                  fontFamily: 'Noto Sans TC',
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width:
+                              MediaQuery.of(context).size.width > 400 ? 12 : 10,
+                        ),
+                        Container(
+                          width:
+                              MediaQuery.of(context).size.width > 400 ? 82 : 76,
+                          height:
+                              MediaQuery.of(context).size.width > 400 ? 82 : 76,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                  'images/psycho_test_category_emo_.svg'),
+                              const SizedBox(
+                                height: 12,
+                              ),
+                              const Text(
+                                '情緒健康',
+                                style: TextStyle(
+                                  color: Color(0xFF667C85),
+                                  fontFamily: 'Noto Sans TC',
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width:
+                              MediaQuery.of(context).size.width > 400 ? 12 : 10,
+                        ),
+                        Container(
+                          width:
+                              MediaQuery.of(context).size.width > 400 ? 82 : 76,
+                          height:
+                              MediaQuery.of(context).size.width > 400 ? 82 : 76,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                  'images/psycho_test_category_emo_.svg'),
+                              const SizedBox(
+                                height: 12,
+                              ),
+                              const Text(
+                                '人際關係',
+                                style: TextStyle(
+                                  color: Color(0xFF667C85),
+                                  fontFamily: 'Noto Sans TC',
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width:
+                              MediaQuery.of(context).size.width > 400 ? 12 : 10,
+                        ),
+                        Container(
+                          width:
+                              MediaQuery.of(context).size.width > 400 ? 82 : 76,
+                          height:
+                              MediaQuery.of(context).size.width > 400 ? 82 : 76,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                  'images/psycho_test_category_emo_.svg'),
+                              const SizedBox(
+                                height: 12,
+                              ),
+                              const Text(
+                                '人格特質',
+                                style: TextStyle(
+                                  color: Color(0xFF667C85),
+                                  fontFamily: 'Noto Sans TC',
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
